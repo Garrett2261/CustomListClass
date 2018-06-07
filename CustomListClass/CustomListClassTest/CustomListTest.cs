@@ -18,15 +18,16 @@ namespace CustomListClassTest
 
 
             //act
-            list.add(value); 
+            list.add(value);
 
-            
 
-            
-            
-            
-            
+
+
+
+
+
             //assert
+            Assert.AreEqual(1, value);
             
         }
     }
