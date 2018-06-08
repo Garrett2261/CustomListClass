@@ -13,12 +13,15 @@ namespace CustomListClassTest
         {
             //arrange
             CustomList<int> list = new CustomList<int>();
-            int value = 1;
+            int expectedCount = 1;
+            int valueToAdd = 20;
+
 
 
 
             //act
-            list.add(value);
+            list.Add(valueToAdd);
+            int actualCount = list.Count;
 
 
 
@@ -27,8 +30,9 @@ namespace CustomListClassTest
 
 
             //assert
-            Assert.AreEqual(1, value);
+            Assert.AreEqual(expectedCount, actualCount);
             
         }
-    }
+
+        
 }
