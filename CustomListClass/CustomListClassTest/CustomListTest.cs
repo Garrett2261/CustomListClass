@@ -16,18 +16,9 @@ namespace CustomListClassTest
             int expectedCount = 1;
             int valueToAdd = 20;
 
-
-
-
             //act
             list.Add(valueToAdd);
             int actualCount = list.Count;
-
-
-
-
-
-
 
             //assert
             Assert.AreEqual(expectedCount, actualCount);
@@ -42,22 +33,41 @@ namespace CustomListClassTest
             int expectedValue = 20;
             int valueToAdd = 20;
 
-            //check to see that valuetoAdd which is 20, is at index 0.
-
-
-
+            //check to see that valuetoAdd which is 20, is at index 0
 
             //act
             list.Add(valueToAdd);
             int actualValue = list[0];
 
-
-
-
-
-
-
             //assert
             Assert.AreEqual(expectedValue, actualValue);
-        } 
+        }
+
+        [TestMethod]
+        public void Add_Int_To_List_Check_That_Capacity_Changes_If_More_Items_Are_Added_To_List()
+        {
+            //arrange
+            CustomList<int> list = new CustomList<int>();
+            int expectedCapacity = 10;
+            int valueToAdd = 20;
+
+            //act
+            list.Add(valueToAdd);
+            list.Add(valueToAdd);
+            list.Add(valueToAdd);
+            list.Add(valueToAdd);
+            list.Add(valueToAdd);
+            list.Add(valueToAdd);
+            int actualCapacity = list.Capacity;
+
+            //assert
+            Assert.AreEqual(expectedCapacity, actualCapacity);
+        }
+    }
+}
+
+
+
+
+
 
