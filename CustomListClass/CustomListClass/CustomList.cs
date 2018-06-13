@@ -87,6 +87,11 @@ namespace CustomListClass
             capacityCheck = 0; 
         }
 
+        public void Remove()
+        {
+            
+        }
+
         
 
 

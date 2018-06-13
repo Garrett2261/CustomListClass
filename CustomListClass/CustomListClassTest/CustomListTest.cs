@@ -63,6 +63,52 @@ namespace CustomListClassTest
             //assert
             Assert.AreEqual(expectedCapacity, actualCapacity);
         }
+
+        [TestMethod]
+        public void Remove_Item_From_List_Check_Count()
+        {
+            //arrange
+            CustomList<int> list = new CustomList<int>();
+            int expectedCount = 1;
+      
+
+
+
+
+            //act
+            list.Add(10);
+            list.Add(20);
+            list.Add(30);
+            list.Add(40);
+            list.Add(50);
+            list.Remove(10);
+            int actualCount = 
+
+
+            //assert
+            Assert.AreEqual(expectedCount, actualCount);
+            
+        }
+
+        [TestMethod]
+        public void Remove_Item_From_List_Check_Indexes_Of_List()
+        {
+            //arrange
+
+            //act
+
+            //assert
+        }
+
+        [TestMethod]
+        public void Remove_Item_From_List_Check_If_Right_Index_Is_Removed()
+        {
+            //arrange
+
+            //act
+
+            //assert
+        }
     }
 }
 
