@@ -69,7 +69,9 @@ namespace CustomListClassTest
         {
             //arrange
             CustomList<int> list = new CustomList<int>();
-            int expectedCount = 1;
+            int expectedCount = 5;
+            int valueToRemove = 15;
+            
       
 
 
@@ -77,12 +79,13 @@ namespace CustomListClassTest
 
             //act
             list.Add(10);
+            list.Add(valueToRemove);
             list.Add(20);
             list.Add(30);
             list.Add(40);
             list.Add(50);
-            list.Remove(10);
-            int actualCount = 
+            list.Remove(valueToRemove);
+            int actualCount = list.Count;
 
 
             //assert
@@ -94,20 +97,38 @@ namespace CustomListClassTest
         public void Remove_Item_From_List_Check_Indexes_Of_List()
         {
             //arrange
+            CustomList<int> list = new CustomList<int>();
+            int expectedValue = 10;
 
             //act
+            list.Add(10);
+            list.Add(20);
+            list.Remove(20);
+            int actualValue = list[0];
+            
 
             //assert
+            Assert.AreEqual(expectedValue, actualValue);
         }
 
         [TestMethod]
-        public void Remove_Item_From_List_Check_If_Right_Index_Is_Removed()
+        public void Remove_Item_From_List_Check_That_Capacity_Changes_If_More_Items_Are_Removed()
         {
             //arrange
+            CustomList<int> list = new CustomList<int>();
+            int expectedCapacity = 5;
 
             //act
-
+            list.Add(10);
+            list.Add(20);
+            list.Add(30);
+            list.Add(40);
+            list.Add(50);
+            list.Add(60);
+            list.Remove(60);
+            int actualCapacity = list.Capacity;
             //assert
+            Assert.AreEqual(expectedCapacity, actualCapacity);
         }
     }
 }

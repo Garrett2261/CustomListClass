@@ -22,7 +22,8 @@ namespace CustomListClass
             {
                 Console.WriteLine(list[i]);
             }
-
+            list.Remove(10);
+            Console.WriteLine(list.Count);
             Console.ReadLine();
         }
     }
