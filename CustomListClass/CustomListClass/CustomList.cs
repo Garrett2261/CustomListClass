@@ -102,35 +102,26 @@ namespace CustomListClass
         }
 
         
-
+        //public void Remove(T value)
+        //{
+        //enter a value that you want to remove and then you want to find that value in your current list and then you want to remove that value once it equals one 
+        //of the values in your list/array. Then take that information and take that data for many many years. 
         
 
         public void Remove(T valueToRemove)
         {
-            //For the remove function, take in a value to remove and if that value is equal to a value in the array list, then that value will be removed. 
-            T[] newArray = new T[capacity];
-            if (true)
+            for(int i = 0; i <= Count; i++)
             {
-
-            }
-            if(this.Count > 0)
-            {
-                
-                for(int i = 0; i < Count; i++)
+                if (array[i].Equals(valueToRemove))
                 {
-                    if (this.Index(valueToRemove) == i)
+                    for(int j = 1; j < (Count - 1); j++)
                     {
-                        count--;
+                        int index = (j + 1);
+                        array[j] = array[index];
                     }
-                    else
-                    {
-                        if(this.Index(valueToRemove) < i)
-                        {
-
-                        }
-                    }
+                    array[Count - 1] = default(T);
+                    count--;
                 }
-                count--;
             }
             
             //possibly think of making a new array 
@@ -190,6 +181,24 @@ namespace CustomListClass
                 if (list1.Contains(list2[i]))
                 {
                     list.Remove(list2[i]);
+                }
+            }
+            return list;
+        }
+
+        public CustomList<T> MergeLists(CustomList<T> listTwo)
+        {
+            CustomList<T> list = new CustomList<T>();
+            for(int i = 0; i < this.Count; i++)
+            {
+                list.Add(this[i]);
+                if (listTwo[i].Equals(default(T)))
+                {
+                    return list;
+                }
+                else
+                {
+                    list.Add(listTwo[i]);
                 }
             }
             return list;
