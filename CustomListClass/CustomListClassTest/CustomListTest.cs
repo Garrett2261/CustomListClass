@@ -69,8 +69,7 @@ namespace CustomListClassTest
         {
             //arrange
             CustomList<int> list = new CustomList<int>();
-            int expectedCount = 5;
-            int valueToRemove = 15;
+            int expectedCount = 4;
             
       
 
@@ -79,12 +78,11 @@ namespace CustomListClassTest
 
             //act
             list.Add(10);
-            list.Add(valueToRemove);
             list.Add(20);
             list.Add(30);
             list.Add(40);
             list.Add(50);
-            list.Remove(valueToRemove);
+            list.Remove(50);
             int actualCount = list.Count;
 
 
@@ -130,6 +128,9 @@ namespace CustomListClassTest
             //assert
             Assert.AreEqual(expectedCapacity, actualCapacity);
         }
+
+        //When you remove an item from a list, the count changes and also 
+        //Do a test that checks if the list contains the removed value, and you want to 
     }
 }
 

@@ -100,31 +100,38 @@ namespace CustomListClass
                 IncreaseCapacity();
             }
         }
-
-        
-        //public void Remove(T value)
-        //{
-        //enter a value that you want to remove and then you want to find that value in your current list and then you want to remove that value once it equals one 
-        //of the values in your list/array. Then take that information and take that data for many many years. 
         
 
         public void Remove(T valueToRemove)
         {
-            for(int i = 0; i <= Count; i++)
+            if(this.Index(valueToRemove) == -1)
             {
-                if (array[i].Equals(valueToRemove))
-                {
-                    for(int j = 1; j < (Count - 1); j++)
-                    {
-                        int index = (j + 1);
-                        array[j] = array[index];
-                    }
-                    array[Count - 1] = default(T);
-                    count--;
-                }
+                throw new ArgumentOutOfRangeException();
             }
-            
-            //possibly think of making a new array 
+            else
+            {
+                T[] tempArray = new T[Capacity];
+                for(int i = 0; i < array.Length; i++)
+                {
+                    if(this.Index(valueToRemove) == i)
+                    {
+                        count--;
+                        continue;
+                    }
+                    else
+                    {
+                        if(this.Index(valueToRemove) < i)
+                        {
+                            tempArray[i - 1] = array[i];
+                        }
+                        else
+                        {
+                            tempArray[i] = array[i];
+                        }
+                    }
+                }
+                array = tempArray;
+            }
         }
         public void IncreaseCapacity()
         {
@@ -137,10 +144,6 @@ namespace CustomListClass
             array = newArray;
             capacityCheck = 0;
         }
-        //public void DecreaseCapacity()
-        //{
-
-        //}
 
         public override string ToString()
         {
